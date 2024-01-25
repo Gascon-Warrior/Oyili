@@ -2,5 +2,66 @@
 @tailwind components;
 @tailwind utilities;
 body {
-    background-color: skyblue;
+    background-color: #fff;  
+    font-family: lato;  
+}
+#contactText {
+  color: #fff;
+  font-family: Palanquin Dark, helvetica, arial, sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  letter-spacing: -2.5px;
+}
+header {
+  background-color: black;  
+  display: flex;
+  align-items: center;
+  height: 80px;
+  padding: 0 20px 0 20px;
+}
+.nav-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.nav-list > ul > li {
+  color: #fff;
+}
+.nav-list > ul {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+}
+.nav-list {
+  width: 20%;
+  margin-left: 25px;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+@keyframes animBtnContact {
+  0%,
+  16.666% {
+    color: #EB610E;
+  }
+  16.667%,
+  33.333% {
+    color: #EC7056;
+  }
+  33.334%,
+  50% {
+    color: #91CDCF;
+  }
+  50.001%,
+  66.666% {
+    color: #A0AA8F;
+  }
+  66.667%,
+  83.333% {
+    color: #EAE2CB;
+  }
+  83.334%,
+  100% {
+    color: #0C324E; /* Répétition de la première couleur pour la sixième étape */
+  }
 }
