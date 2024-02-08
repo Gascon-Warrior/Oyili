@@ -65,3 +65,7 @@ header {
     color: #0C324E; /* Répétition de la première couleur pour la sixième étape */
   }
 }
+::selection{
+  background: rgba(235, 97, 14, 0.3);  
+}
+

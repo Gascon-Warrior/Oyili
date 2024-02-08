@@ -18,9 +18,16 @@ module.exports = {
       },
       fontFamily:{
         'th-title': ['Palanquin Dark', 'helvetica', 'arial', 'sans-serif'],
+        'th-palanquin': ['Palanquin', 'helvetica', 'arial', 'sans-serif'],
       },
       backgroundImage: {
-        'dot': "url('/images/dot.svg')",        
+        'dot': "url('/images/dot.svg')", 
+        'color-line': "url('/images/bande-couleur.svg')",
+        'color-line-offset': "url('/images/bande-couleur-decalee.svg')",    
+
+      },
+      backgroundPosition:{
+        'scrol-pos': 'var(--scrollPos)',
       },
       animation:{
         'dot-line': 'dot-line 30s linear infinite'
