@@ -1,6 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .after-footer {
+    @apply after:w-0 after:h-[1px] after:bg-white content-[''] after:absolute after:top-[50%] after:block after:left-[-40px] after:origin-right;
+  }
+}
+
 body {
     background-color: #fff;  
     font-family: lato;  
