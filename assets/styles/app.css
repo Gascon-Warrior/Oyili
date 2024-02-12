@@ -75,4 +75,7 @@ header {
 ::selection{
   background: rgba(235, 97, 14, 0.3);  
 }
+.move-background{
+  background-position-x: calc(100% - var(--scrollPos));
+}
 

@@ -1035,6 +1035,10 @@ header {
   background: rgba(235, 97, 14, 0.3);
 }
 
+.move-background{
+  background-position-x: var(--scrollPos);
+}
+
 .before\:absolute::before {
   content: var(--tw-content);
   position: absolute;
