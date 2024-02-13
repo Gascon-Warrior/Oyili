@@ -709,6 +709,10 @@ video {
   height: 1vw;
 }
 
+.h-\[2\.8vw\] {
+  height: 2.8vw;
+}
+
 .h-\[70vh\] {
   height: 70vh;
 }
@@ -1036,7 +1040,7 @@ header {
 }
 
 .move-background{
-  background-position-x: var(--scrollPos);
+  background-position-x: calc(100% - var(--scrollPos));
 }
 
 .before\:absolute::before {
