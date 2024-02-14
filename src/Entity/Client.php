@@ -37,9 +37,13 @@ class Client
     #[ORM\OneToMany(mappedBy: 'client', targetEntity: Video::class)]
     private Collection $videos;
 
+    #[ORM\OneToMany(mappedBy: 'client', targetEntity: Picture::class)]
+    private Collection $pictures;
+
     public function __construct()
     {
         $this->videos = new ArrayCollection();
+        $this->pictures = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -143,6 +147,36 @@ class Client
             // set the owning side to null (unless already changed)
             if ($video->getClient() === $this) {
                 $video->setClient(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Picture>
+     */
+    public function getPictures(): Collection
+    {
+        return $this->pictures;
+    }
+
+    public function addPicture(Picture $picture): static
+    {
+        if (!$this->pictures->contains($picture)) {
+            $this->pictures->add($picture);
+            $picture->setClient($this);
+        }
+
+        return $this;
+    }
+
+    public function removePicture(Picture $picture): static
+    {
+        if ($this->pictures->removeElement($picture)) {
+            // set the owning side to null (unless already changed)
+            if ($picture->getClient() === $this) {
+                $picture->setClient(null);
             }
         }
 

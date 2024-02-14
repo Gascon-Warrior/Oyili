@@ -37,9 +37,13 @@ class Video
     #[ORM\ManyToMany(targetEntity: tag::class, inversedBy: 'videos')]
     private Collection $tag;
 
+    #[ORM\OneToMany(mappedBy: 'video', targetEntity: VideoJobWorker::class, orphanRemoval: true)]
+    private Collection $videoJobWorkers;
+
     public function __construct()
     {
         $this->tag = new ArrayCollection();
+        $this->videoJobWorkers = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -139,6 +143,36 @@ class Video
     public function removeTag(tag $tag): static
     {
         $this->tag->removeElement($tag);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, VideoJobWorker>
+     */
+    public function getVideoJobWorkers(): Collection
+    {
+        return $this->videoJobWorkers;
+    }
+
+    public function addVideoJobWorker(VideoJobWorker $videoJobWorker): static
+    {
+        if (!$this->videoJobWorkers->contains($videoJobWorker)) {
+            $this->videoJobWorkers->add($videoJobWorker);
+            $videoJobWorker->setVideo($this);
+        }
+
+        return $this;
+    }
+
+    public function removeVideoJobWorker(VideoJobWorker $videoJobWorker): static
+    {
+        if ($this->videoJobWorkers->removeElement($videoJobWorker)) {
+            // set the owning side to null (unless already changed)
+            if ($videoJobWorker->getVideo() === $this) {
+                $videoJobWorker->setVideo(null);
+            }
+        }
 
         return $this;
     }

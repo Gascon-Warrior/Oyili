@@ -22,12 +22,12 @@ class Worker
     #[ORM\Column(type: Types::TEXT)]
     private ?string $presentation = null;
 
-    #[ORM\ManyToMany(targetEntity: Job::class, inversedBy: 'workers')]
-    private Collection $job;
+    #[ORM\OneToMany(mappedBy: 'worker', targetEntity: Picture::class)]
+    private Collection $pictures;
 
     public function __construct()
-    {
-        $this->job = new ArrayCollection();
+    {       
+        $this->pictures = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -60,25 +60,31 @@ class Worker
     }
 
     /**
-     * @return Collection<int, Job>
+     * @return Collection<int, Picture>
      */
-    public function getJob(): Collection
+    public function getPictures(): Collection
     {
-        return $this->job;
+        return $this->pictures;
     }
 
-    public function addJob(Job $job): static
+    public function addPicture(Picture $picture): static
     {
-        if (!$this->job->contains($job)) {
-            $this->job->add($job);
+        if (!$this->pictures->contains($picture)) {
+            $this->pictures->add($picture);
+            $picture->setWorker($this);
         }
 
         return $this;
     }
 
-    public function removeJob(Job $job): static
+    public function removePicture(Picture $picture): static
     {
-        $this->job->removeElement($job);
+        if ($this->pictures->removeElement($picture)) {
+            // set the owning side to null (unless already changed)
+            if ($picture->getWorker() === $this) {
+                $picture->setWorker(null);
+            }
+        }
 
         return $this;
     }
