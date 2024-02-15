@@ -7,7 +7,14 @@ module.exports = {
   theme: {
     extend: {
       colors:{
-        'th-orange': '#EB620C',
+        'th-orange': '#EB610E',
+        'th-beige' : '#EAE2CB',
+        'th-vert' : '#A0AA8F',
+        'th-turquoize' : '#91CDCF',
+        'th-saumon' : '#F6DCCA',
+        'th-rose' : '#EC7056',
+        'th-noir' : '#46483C',
+        'th-bleu' :'#0C324E',
       },
       fontSize:{
         'th-h1': '90px',
