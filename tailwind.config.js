@@ -8,6 +8,7 @@ module.exports = {
     extend: {
       colors:{
         'th-orange': '#EB610E',
+        'th-orange-hover': '#d3570d',
         'th-beige' : '#EAE2CB',
         'th-vert' : '#A0AA8F',
         'th-turquoize' : '#91CDCF',
@@ -63,5 +64,7 @@ module.exports = {
       }
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms'),
+  ],
 }

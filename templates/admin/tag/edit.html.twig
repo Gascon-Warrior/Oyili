@@ -1,0 +1,13 @@
+{% extends 'admin/base.html.twig' %}
+{# TODO:Gestion des message flash #}
+{% block main %}
+<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+  <!-- We've used 3xl here, but feel free to try other max-widths based on your needs -->
+  <div class="mx-auto max-w-3xl">
+	<h1 class="font-bold text-2xl text-th-noir mt-24 mb-20">Modifier un tag</h1>
+    <!-- Content goes here -->
+	{% include 'admin/tag/_form.html.twig' with {'button_label': 'Modifier'} %}
+  </div>
+</div>
+
+{% endblock %}

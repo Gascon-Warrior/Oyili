@@ -32,7 +32,7 @@ class Video
     private ?bool $isPromoted = null;
 
     #[ORM\ManyToOne(inversedBy: 'videos')]
-    private ?client $client = null;
+    private ?Client $client = null;
 
     #[ORM\ManyToMany(targetEntity: tag::class, inversedBy: 'videos')]
     private Collection $tag;

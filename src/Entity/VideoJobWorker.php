@@ -15,13 +15,13 @@ class VideoJobWorker
 
     #[ORM\ManyToOne(inversedBy: 'videoJobWorkers')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?video $video = null;
+    private ?Video $video = null;
 
     #[ORM\ManyToOne]
-    private ?job $job = null;
+    private ?Job $job = null;
 
     #[ORM\ManyToOne]
-    private ?worker $worker = null;
+    private ?Worker $worker = null;
 
     public function getId(): ?int
     {
