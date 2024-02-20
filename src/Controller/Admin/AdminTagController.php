@@ -43,7 +43,7 @@ class AdminTagController extends AbstractController
             $em->persist($tag);
             $em->flush();
 
-            $this->addFlash('success', 'Le tag a bien été ajouté!');
+            $this->addFlash('success', 'Le tag a bien été ajouté.');
 
             return $this->redirectToRoute('admin_tag_index');
         }
@@ -60,7 +60,7 @@ class AdminTagController extends AbstractController
         $em->remove($tag);
         $em->flush();
         
-        $this->addFlash('success', 'Le tag a bien été supprimé');
+        $this->addFlash('success', 'Le tag a bien été supprimé.');
 
         return $this->redirectToRoute('admin_tag_index');
     }
@@ -71,8 +71,7 @@ class AdminTagController extends AbstractController
         $form = $this->createForm(TagType::class, $tag);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            # code...
+        if ($form->isSubmitted() && $form->isValid()) {           
             $label = $form->get('label')->getData();
 
             $tag->setLabel($label);

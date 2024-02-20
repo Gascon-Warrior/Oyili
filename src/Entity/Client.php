@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Entity\Trait\SlugTrait;
 use App\Repository\ClientRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -11,6 +12,8 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: ClientRepository::class)]
 class Client
 {
+    use SlugTrait;
+    
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -30,9 +33,6 @@ class Client
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $workPresentation = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $slug = null;
 
     #[ORM\OneToMany(mappedBy: 'client', targetEntity: Video::class)]
     private Collection $videos;
@@ -107,18 +107,6 @@ class Client
     public function setWorkPresentation(?string $workPresentation): static
     {
         $this->workPresentation = $workPresentation;
-
-        return $this;
-    }
-
-    public function getSlug(): ?string
-    {
-        return $this->slug;
-    }
-
-    public function setSlug(string $slug): static
-    {
-        $this->slug = $slug;
 
         return $this;
     }

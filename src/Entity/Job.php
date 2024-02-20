@@ -2,37 +2,26 @@
 
 namespace App\Entity;
 
+use App\Entity\Trait\LabelTrait;
 use App\Repository\JobRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+
+/*TODO: Valider les champs*/
 
 #[ORM\Entity(repositoryClass: JobRepository::class)]
+#[UniqueEntity(fields:['label'], message: 'Ce métier existe déjà!')]
 class Job
-{
+{   
+    use LabelTrait;
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $label = null;
-
-
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getLabel(): ?string
-    {
-        return $this->label;
-    }
-
-    public function setLabel(string $label): static
-    {
-        $this->label = $label;
-
-        return $this;
     }
 }
