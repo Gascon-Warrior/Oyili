@@ -6,6 +6,7 @@ use App\Entity\Tag;
 use Doctrine\DBAL\Types\TextType;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType as TypeTextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -27,8 +28,9 @@ class TagType extends AbstractType
                 ],
                 'attr' => [
                     'required' => 'required',
-                ]
-            ]);
+                ]                
+                ]);
+           
     }
 
     public function configureOptions(OptionsResolver $resolver): void

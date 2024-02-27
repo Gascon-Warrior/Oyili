@@ -34,7 +34,7 @@ class Video
     #[ORM\ManyToOne(inversedBy: 'videos')]
     private ?Client $client = null;
 
-    #[ORM\ManyToMany(targetEntity: tag::class, inversedBy: 'videos')]
+    #[ORM\ManyToMany(targetEntity: Tag::class, inversedBy: 'videos')]
     private Collection $tag;
 
     #[ORM\OneToMany(mappedBy: 'video', targetEntity: VideoJobWorker::class, orphanRemoval: true)]
@@ -131,7 +131,7 @@ class Video
         return $this->tag;
     }
 
-    public function addTag(tag $tag): static
+    public function addTag(Tag $tag): static
     {
         if (!$this->tag->contains($tag)) {
             $this->tag->add($tag);
@@ -140,7 +140,7 @@ class Video
         return $this;
     }
 
-    public function removeTag(tag $tag): static
+    public function removeTag(Tag $tag): static
     {
         $this->tag->removeElement($tag);
 

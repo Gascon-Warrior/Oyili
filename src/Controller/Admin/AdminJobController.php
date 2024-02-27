@@ -10,7 +10,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\String\Slugger\SluggerInterface;
 
 #[Route('/admin954*retix/job', name: 'admin_job_')]
 class AdminJobController extends AbstractController
@@ -26,16 +25,13 @@ class AdminJobController extends AbstractController
     }
 
     #[Route('/ajout', name: 'add')]
-    public function add(EntityManagerInterface $em, Request $request)
+    public function add(EntityManagerInterface $em, Request $request): Response
     {
         $job = new Job();
         $form = $this->createForm(JobType::class, $job);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-
-            $job = $form->getData();
-            $job->setLabel($job->getLabel());
 
             $em->persist($job);
             $em->flush();

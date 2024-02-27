@@ -20,10 +20,10 @@ class Picture
     private ?bool $isPromoted = null;
 
     #[ORM\ManyToOne(inversedBy: 'pictures')]
-    private ?client $client = null;
+    private ?Client $client = null;
 
     #[ORM\ManyToOne(inversedBy: 'pictures')]
-    private ?worker $worker = null;
+    private ?Worker $worker = null;
 
     public function getId(): ?int
     {
@@ -54,24 +54,24 @@ class Picture
         return $this;
     }
 
-    public function getClient(): ?client
+    public function getClient(): ?Client
     {
         return $this->client;
     }
 
-    public function setClient(?client $client): static
+    public function setClient(?Client $client): static
     {
         $this->client = $client;
 
         return $this;
     }
 
-    public function getWorker(): ?worker
+    public function getWorker(): ?Worker
     {
         return $this->worker;
     }
 
-    public function setWorker(?worker $worker): static
+    public function setWorker(?Worker $worker): static
     {
         $this->worker = $worker;
 

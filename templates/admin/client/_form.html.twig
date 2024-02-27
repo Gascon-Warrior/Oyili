@@ -1,0 +1,22 @@
+{% form_theme clientForm 'partials/_customForm.html.twig' %}
+
+{{ form_start(clientForm) }}
+    {{ form_row(clientForm.company) }}
+
+    {# On affiche les images si on est en édition #}
+    {#{% if app.request.attributes.get('_route') == 'admin_client_edit' %}
+        <h2>Images</h2>
+            <div>
+                <img src="{{ asset('assets/uploads/svg/' ~ client.logo ) }}" alt="Image" width="150">
+                <a href="{{ path('admin_client_delete_image', {id: image.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ image.id) }}">Supprimer</a>
+            </div>
+        
+    {% endif %}#}
+
+    {{ form_row(clientForm.logo) }}
+    {{ form_row(clientForm.tagline) }}
+    {{ form_row(clientForm.clientFeedback) }}
+    {{ form_row(clientForm.workPresentation) }}
+    <button type='submit' class="rounded-md bg-green-600 px-3 mt-10 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600">{{button_label|default('Ajouter')}}</button>
+{{ form_end(clientForm) }}
+

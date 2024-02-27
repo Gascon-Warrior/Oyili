@@ -1,0 +1,60 @@
+{% extends 'admin/base.html.twig' %}
+
+{% block title %}Liste des clients
+{% endblock %}
+
+{% block main %}
+	<div class="px-4 sm:px-6 lg:px-8">
+		<div class="sm:flex sm:items-center">
+			<div class="sm:flex-auto">
+				<h1 class="text-base font-semibold leading-6 text-th-noir mt-24">Clients</h1>
+				<p class="mt-2 text-sm text-gray-700">Liste des clients</p>
+			</div>
+			<div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
+				<button type="button" class="block rounded-md bg-th-orange px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-th-orange-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Ajouter un client</button>
+			</div>
+		</div>
+		<div class="mt-8 flow-root">
+			<div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+				<div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8 max-w">
+					<div class="overflow-hidden shadow ring-1 ring-black ring-opacity-5 sm:rounded-lg">
+						<table class="min-w-full divide-y divide-gray-300">
+							<thead class="bg-th-beige">
+								<tr>
+									<th scope="col" class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-6">Nom du client</th>
+									<th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Logo</th>
+									<th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Slogan</th>
+									<th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Témoignage</th>
+									<th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Présentation du travail effectué</th>
+									<th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-6">
+										<span class="sr-only">Modifier</span>
+									</th>
+								</tr>
+							</thead>
+							<tbody class="divide-y divide-gray-200 bg-white">
+								{% for client in clients %}
+									<tr>
+										<td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">{{ client.company }}</td>
+										<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><img src="{{ asset('/assets/uploads/svg/' ~ client.logo) }} " alt=""> 
+											</td>
+										<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ client.tagline }}</td>
+										<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-wrap ">{{ client.clientFeedback }}</td>
+										<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-wrap">{{ client.workPresentation }}</td>
+										<td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+											<a href="#" class="text-indigo-600 hover:text-indigo-900">Edit<span class="sr-only">, Lindsay Walton</span>
+											</a>
+										</td>
+									</tr>
+
+								{% endfor %}
+
+								<!-- More people... -->
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
