@@ -11,7 +11,9 @@
 				<p class="mt-2 text-sm text-gray-700">Liste des clients</p>
 			</div>
 			<div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
-				<button type="button" class="block rounded-md bg-th-orange px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-th-orange-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Ajouter un client</button>
+				<a href="{{ path('admin_client_add') }}">
+					<button type="button" class="block rounded-md bg-th-orange px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-th-orange-hover focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Ajouter un client</button>
+				</a>
 			</div>
 		</div>
 		<div class="mt-8 flow-root">
@@ -35,13 +37,15 @@
 								{% for client in clients %}
 									<tr>
 										<td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">{{ client.company }}</td>
-										<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><img src="{{ asset('/assets/uploads/svg/' ~ client.logo) }} " alt=""> 
+										<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500"><img src="{{ asset('/assets/uploads/svg/' ~ client.logo) }} " alt="{{ 'Logo de l\'entreprise ' ~ client.company}}"> 
 											</td>
 										<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ client.tagline }}</td>
 										<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-wrap ">{{ client.clientFeedback }}</td>
 										<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-wrap">{{ client.workPresentation }}</td>
 										<td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
-											<a href="#" class="text-indigo-600 hover:text-indigo-900">Edit<span class="sr-only">, Lindsay Walton</span>
+											<a href="{{ path('admin_client_edit', {id: client.id}) }}" class="text-indigo-600 hover:text-indigo-900">Modifier<span class="sr-only">{{ client.company }}</span>
+											</a>
+											<a href="{{ path('admin_client_delete', {id: client.id}) }}" class="text-red-600 hover:text-red-900 ml-4">Supprimer<span class="sr-only">{{ client.company }}</span>
 											</a>
 										</td>
 									</tr>

@@ -4,14 +4,13 @@
     {{ form_row(clientForm.company) }}
 
     {# On affiche les images si on est en édition #}
-    {#{% if app.request.attributes.get('_route') == 'admin_client_edit' %}
+    {% if app.request.attributes.get('_route') == 'admin_client_edit' %}
         <h2>Images</h2>
-            <div>
-                <img src="{{ asset('assets/uploads/svg/' ~ client.logo ) }}" alt="Image" width="150">
-                <a href="{{ path('admin_client_delete_image', {id: image.id}) }}" data-delete data-token="{{ csrf_token('delete' ~ image.id) }}">Supprimer</a>
+            <div class="bg-gray-500">
+                <img src="{{ asset('assets/uploads/svg/' ~ client.logo ) }}" alt="Image" width="150">               
             </div>
         
-    {% endif %}#}
+    {% endif %}
 
     {{ form_row(clientForm.logo) }}
     {{ form_row(clientForm.tagline) }}

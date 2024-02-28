@@ -16,6 +16,7 @@ class ClientType extends AbstractType
             ->add('company')
             ->add('logo', FileType::class, [
                 'mapped' => false,
+                'required' =>false,
             ])
             ->add('tagline')
             ->add('clientFeedback')
