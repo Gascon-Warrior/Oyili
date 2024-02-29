@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Client;
+use App\Entity\ClientCase;
 use App\Form\ClientType;
 use App\Repository\ClientRepository;
 use App\Service\PictureService;
@@ -109,6 +110,13 @@ class AdminClientController extends AbstractController
         $folder = 'svg';
 
         $pictureService->delete($image, $folder);
+
+        $clientCase = $em->getRepository(ClientCase::class)->findOneBy(['client' => $client]);
+
+        if ($clientCase !== null) {
+            // Supprimer le ClientCase associé
+            $em->remove($clientCase);
+        }
 
         $em->remove($client);
         $em->flush();

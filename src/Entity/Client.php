@@ -31,22 +31,22 @@ class Client
 
     #[ORM\Column(type: Types::TEXT)]
     #[Assert\Length(
-        min: 10,       
-        minMessage: 'La tagline doit faire {{ limit }} caractères minimum.'       
+        min: 10,
+        minMessage: 'La tagline doit faire {{ limit }} caractères minimum.'
     )]
     private ?string $tagline = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     #[Assert\Length(
-        min: 10,       
-        minMessage: 'L\'avis client doit faire {{ limit }} caractères minimum.'       
+        min: 10,
+        minMessage: 'L\'avis client doit faire {{ limit }} caractères minimum.'
     )]
     private ?string $clientFeedback = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     #[Assert\Length(
-        min: 150,       
-        minMessage: 'La presentation du travail éffectué doit faire {{ limit }} caractères minimum.'       
+        min: 150,
+        minMessage: 'La presentation du travail éffectué doit faire {{ limit }} caractères minimum.'
     )]
     private ?string $workPresentation = null;
 

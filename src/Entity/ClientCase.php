@@ -17,9 +17,9 @@ class ClientCase
     #[ORM\Column(type: Types::TEXT)]
     private ?string $presentation = null;
 
-    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    #[ORM\OneToOne()]
     #[ORM\JoinColumn(nullable: false)]
-    private ?client $client = null;
+    private ?Client $client = null;
 
     public function getId(): ?int
     {
@@ -38,12 +38,12 @@ class ClientCase
         return $this;
     }
 
-    public function getClient(): ?client
+    public function getClient(): ?Client
     {
         return $this->client;
     }
 
-    public function setClient(client $client): static
+    public function setClient(Client $client): static
     {
         $this->client = $client;
 

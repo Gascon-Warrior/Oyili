@@ -60,7 +60,7 @@ class AdminJobController extends AbstractController
             $em->persist($job);
             $em->flush();
 
-            $this->addFlash('succes', 'Le métier a bien été modifié');
+            $this->addFlash('succes', 'Le métier a bien été modifié.');
 
             return $this->redirectToRoute('admin_job_index');
         }
