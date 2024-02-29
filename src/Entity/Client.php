@@ -8,30 +8,46 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ClientRepository::class)]
+#[UniqueEntity('company')]
 class Client
 {
     use SlugTrait;
-    
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, unique: true)]
+    #[Assert\NotBlank(message: 'Le champ client ne peut pas être vide')]
     private ?string $company = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $logo = null;
 
     #[ORM\Column(type: Types::TEXT)]
+    #[Assert\Length(
+        min: 10,       
+        minMessage: 'La tagline doit faire {{ limit }} caractères minimum.'       
+    )]
     private ?string $tagline = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
+    #[Assert\Length(
+        min: 10,       
+        minMessage: 'L\'avis client doit faire {{ limit }} caractères minimum.'       
+    )]
     private ?string $clientFeedback = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
+    #[Assert\Length(
+        min: 150,       
+        minMessage: 'La presentation du travail éffectué doit faire {{ limit }} caractères minimum.'       
+    )]
     private ?string $workPresentation = null;
 
     #[ORM\OneToMany(mappedBy: 'client', targetEntity: Video::class)]
@@ -170,5 +186,4 @@ class Client
 
         return $this;
     }
-
 }
