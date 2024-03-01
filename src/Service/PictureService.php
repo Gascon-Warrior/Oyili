@@ -29,10 +29,11 @@ class PictureService
         }
 
         $path = $this->params->get('images_directory') . $folder;
+        
         // Traitement spécifique pour SVG
         if ($picture->getClientMimeType() === 'image/svg+xml') {
             $fichier .= '.svg';
-            $path = $this->params->get('images_directory') . $folder; // Utiliser un dossier spécifique pour les SVG
+            $path = $this->params->get('images_directory') . $folder;
         } else {
             if ($picture_infos === false) {
                 throw new Exception('Format d\'image incorrect');
@@ -48,6 +49,10 @@ class PictureService
                 case 'image/gif':
                     $image_resource = imagecreatefromgif($picture->getPathname());
                     break;
+                case 'image/webp':
+                    $image_resource = imagecreatefromwebp($picture->getPathname());
+                    break;
+
                 default:
                     throw new Exception('Format d\'image non supporté');
             }

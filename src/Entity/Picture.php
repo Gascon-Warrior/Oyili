@@ -16,14 +16,17 @@ class Picture
     #[ORM\Column(length: 255)]
     private ?string $pictureFileName = null;
 
-    #[ORM\Column]
-    private ?bool $isPromoted = null;
+    #[ORM\Column()]
+    private ?bool $isPromoted = false;
 
     #[ORM\ManyToOne(inversedBy: 'pictures')]
     private ?Client $client = null;
 
     #[ORM\ManyToOne(inversedBy: 'pictures')]
     private ?Worker $worker = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $alt = null;
 
     public function getId(): ?int
     {
@@ -74,6 +77,18 @@ class Picture
     public function setWorker(?Worker $worker): static
     {
         $this->worker = $worker;
+
+        return $this;
+    }
+
+    public function getAlt(): ?string
+    {
+        return $this->alt;
+    }
+
+    public function setAlt(?string $alt): static
+    {
+        $this->alt = $alt;
 
         return $this;
     }

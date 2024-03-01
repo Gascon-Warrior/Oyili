@@ -1,0 +1,22 @@
+{% form_theme workerForm 'partials/_customForm.html.twig' %}
+
+{{ form_start(workerForm) }}
+    {{ form_row(workerForm.firstname) }}
+    {{ form_row(workerForm.lastname) }}
+    {{ form_row(workerForm.position) }}
+    {# On affiche les images si on est en édition #}
+    {% if app.request.attributes.get('_route') == 'admin_worker_edit' %}
+        <h2>Images</h2>
+            <div class="bg-gray-500">
+                <img src="{{ asset('assets/uploads/jpg/' ~ worker.picture ) }}" alt="Image" width="150">               
+            </div>
+        
+    {% endif %}
+
+    {{ form_row(workerForm.presentation) }} 
+    {{ form_row(workerForm.picture) }}
+    {{ form_row(workerForm.alt) }}
+
+
+    <button type='submit' class="rounded-md bg-green-600 px-3 mt-10 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600">{{button_label|default('Ajouter')}}</button>
+{{ form_end(workerForm) }}
