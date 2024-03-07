@@ -7,8 +7,10 @@
     {# On affiche les images si on est en édition #}
     {% if app.request.attributes.get('_route') == 'admin_worker_edit' %}
         <h2>Images</h2>
-            <div class="bg-gray-500">
-                <img src="{{ asset('assets/uploads/jpg/' ~ worker.picture ) }}" alt="Image" width="150">               
+            <div>
+            {% for picture in worker.pictures %}                
+                <img src="{{ asset('assets/uploads/img/' ~ picture.pictureFileName ) }}" alt="{{ picture.alt }}" >               
+            {% endfor %}
             </div>
         
     {% endif %}
