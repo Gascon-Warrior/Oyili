@@ -1,10 +1,1 @@
-{% form_theme clientCaseForm 'partials/_customForm.html.twig' %}
 
-{{ form_start(clientCaseForm) }}
-    {{ form_row(clientCaseForm.presentation) }}
-    {{ form_errors(clientCaseForm.presentation) }}
-    {{ form_row(clientCaseForm.client) }}
-    {{ form_errors(clientCaseForm.client) }}
-    <button type='submit' class="rounded-md bg-green-600 px-3 mt-10 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600">{{button_label|default('Ajouter')}}</button>
-{{ form_end(clientCaseForm) }}
-{# TODO:Afficher le message d'erreur #}

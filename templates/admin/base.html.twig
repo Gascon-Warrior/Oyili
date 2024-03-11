@@ -30,41 +30,41 @@
 			<div
 				class="relative z-50 lg:hidden" role="dialog" aria-modal="true">
 				<!--
-								      Off-canvas menu backdrop, show/hide based on off-canvas menu state.
-								
-								      Entering: "transition-opacity ease-linear duration-300"
-								        From: "opacity-0"
-								        To: "opacity-100"
-								      Leaving: "transition-opacity ease-linear duration-300"
-								        From: "opacity-100"
-								        To: "opacity-0"
-								    -->
+																      Off-canvas menu backdrop, show/hide based on off-canvas menu state.
+																
+																      Entering: "transition-opacity ease-linear duration-300"
+																        From: "opacity-0"
+																        To: "opacity-100"
+																      Leaving: "transition-opacity ease-linear duration-300"
+																        From: "opacity-100"
+																        To: "opacity-0"
+																    -->
 				<div class="fixed inset-0 bg-gray-900/80"></div>
 
 				<div
 					class="fixed inset-0 flex">
 					<!--
-										        Off-canvas menu, show/hide based on off-canvas menu state.
-										
-										        Entering: "transition ease-in-out duration-300 transform"
-										          From: "-translate-x-full"
-										          To: "translate-x-0"
-										        Leaving: "transition ease-in-out duration-300 transform"
-										          From: "translate-x-0"
-										          To: "-translate-x-full"
-										      -->
+																				        Off-canvas menu, show/hide based on off-canvas menu state.
+																				
+																				        Entering: "transition ease-in-out duration-300 transform"
+																				          From: "-translate-x-full"
+																				          To: "translate-x-0"
+																				        Leaving: "transition ease-in-out duration-300 transform"
+																				          From: "translate-x-0"
+																				          To: "-translate-x-full"
+																				      -->
 					<div
 						class="relative mr-16 flex w-full max-w-xs flex-1">
 						<!--
-												          Close button, show/hide based on off-canvas menu state.
-												
-												          Entering: "ease-in-out duration-300"
-												            From: "opacity-0"
-												            To: "opacity-100"
-												          Leaving: "ease-in-out duration-300"
-												            From: "opacity-100"
-												            To: "opacity-0"
-												        -->
+																								          Close button, show/hide based on off-canvas menu state.
+																								
+																								          Entering: "ease-in-out duration-300"
+																								            From: "opacity-0"
+																								            To: "opacity-100"
+																								          Leaving: "ease-in-out duration-300"
+																								            From: "opacity-100"
+																								            To: "opacity-0"
+																								        -->
 						<div class="absolute left-full top-0 flex w-16 justify-center pt-5">
 							<button type="button" class="-m-2.5 p-2.5">
 								<span class="sr-only">Close sidebar</span>
@@ -111,19 +111,9 @@
 												</a>
 											</li>
 											<li>
-												<a href="#" class="text-th-noir hover:text-th-orange hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
-													<svg class="h-6 w-6 shrink-0 text-th-noir group-hover:text-th-orange" fill="none" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-														<path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z"/>
-													</svg>
-													Projects
-												</a>
-											</li>
-											<li>
-												<a href="#" class="text-th-noir hover:text-th-orange hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
-													<svg class="h-6 w-6 shrink-0 text-th-noir group-hover:text-th-orange" fill="none" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-														<path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/>
-													</svg>
-													Calendar
+												<a href="{{ path('admin_videoJobWorker_index') }}" class="text-th-noir hover:text-th-orange hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
+													<svg class="h-6 w-6 shrink-0" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 640 512"><!--!Font Awesome Pro 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2024 Fonticons, Inc.--><path fill="#46483c" d="M192 288c0 40.8 10.9 79 30 112c-96.3-1.1-174-79.5-174-176c0-97.2 78.8-176 176-176c38.9 0 74.8 12.6 104 34C248 116.2 192 195.5 192 288zm32 160c11.2 0 22.1-.8 32.8-2.4c40.6 41 96.9 66.4 159.2 66.4c123.7 0 224-100.3 224-224S539.7 64 416 64c-11.2 0-22.1 .8-32.8 2.4C342.6 25.4 286.3 0 224 0C100.3 0 0 100.3 0 224S100.3 448 224 448zm192 16c-38.9 0-74.8-12.6-104-34C392 395.8 448 316.5 448 224c0-40.8-10.9-79-30-112c96.3 1.1 174 79.5 174 176c0 97.2-78.8 176-176 176z"/></svg>
+													Rôles/Vidéo
 												</a>
 											</li>
 											<li>
@@ -145,10 +135,8 @@
 											</li>
 											<li>
 												<a href="{{ path('admin_worker_index') }}" class="text-th-noir hover:text-th-orange hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
-													<svg class="h-6 w-6 shrink-0 text-th-noir group-hover:text-th-orange" fill="none" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-														<path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6a7.5 7.5 0 107.5 7.5h-7.5V6z"/>
-														<path stroke-linecap="round" stroke-linejoin="round" d="M13.5 10.5H21A7.5 7.5 0 0013.5 3v7.5z"/>
-													</svg>
+													<svg class="flex h-6 w-6 shrink-0" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 640 512"><!--!Font Awesome Pro 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2024 Fonticons, Inc.--><path fill="#46483c" d="M128 64a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm0 80a56 56 0 1 0 0-112 56 56 0 1 0 0 112zM0 280c0 43.3 26.4 80.4 64 96v48c0 13.3 10.7 24 24 24h80c13.3 0 24-10.7 24-24V384c0-8.8-7.2-16-16-16s-16 7.2-16 16v32H96V208.4c2.6-.3 5.3-.4 8-.4h48c9.3 0 18.1 1.7 26.2 4.9c8.2 3.2 17.5-.9 20.7-9.1s-.9-17.5-9.1-20.7c-11.7-4.6-24.5-7.1-37.8-7.1H104C46.6 176 0 222.6 0 280zm64 59.9C44.7 327 32 304.9 32 280c0-25 12.7-47 32-59.9V339.9zM512 64a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm0 80a56 56 0 1 0 0-112 56 56 0 1 0 0 112zM640 280c0-57.4-46.6-104-104-104H488c-13.3 0-26.1 2.5-37.8 7.1c-8.2 3.2-12.3 12.5-9.1 20.7s12.5 12.3 20.7 9.1c8.1-3.2 16.9-4.9 26.2-4.9h48c2.7 0 5.4 .1 8 .4V416H480V384c0-8.8-7.2-16-16-16s-16 7.2-16 16v40c0 13.3 10.7 24 24 24h80c13.3 0 24-10.7 24-24V376c37.6-15.7 64-52.7 64-96zm-64 59.9V220.1C595.3 233 608 255 608 280c0 24.9-12.7 47-32 59.9zM288 96a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zm96 0A64 64 0 1 0 256 96a64 64 0 1 0 128 0zm-80 96c-57.4 0-104 46.6-104 104c0 40.1 22.7 74.9 56 92.3V456c0 13.3 10.7 24 24 24h80c13.3 0 24-10.7 24-24V388.3c33.3-17.3 56-52.1 56-92.3c0-57.4-46.6-104-104-104H304zm-48 50.3V349.7c-14.7-13.2-24-32.4-24-53.7c0-21.3 9.3-40.5 24-53.7zM288 448V225.8c5.1-1.2 10.5-1.8 16-1.8h32c5.5 0 10.9 .6 16 1.8V448H288zm96-98.3V242.3c14.7 13.2 24 32.3 24 53.7c0 21.3-9.3 40.5-24 53.7z"/></svg>
+
 													Collaborateurs
 												</a>
 											</li>
@@ -216,26 +204,26 @@
 									</li>
 									<li>
 										<a href="{{ path('admin_clientCase_index') }}" class="text-th-noir hover:text-th-orange hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
-											<svg class="h-6 w-6 shrink-0 text-th-noir group-hover:text-th-orange" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><!--!Font Awesome Pro 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2024 Fonticons, Inc.-->
-												<path d="M168 56a24 24 0 1 1 48 0 24 24 0 1 1 -48 0zm80 0A56 56 0 1 0 136 56a56 56 0 1 0 112 0zM179.3 160H224V320H160V164c6-2.6 12.5-4 19.3-4zM160 496V352h64V496c0 8.8 7.2 16 16 16s16-7.2 16-16V160H400c8.8 0 16-7.2 16-16s-7.2-16-16-16H352V48c0-8.8 7.2-16 16-16H592c8.8 0 16 7.2 16 16V272c0 8.8-7.2 16-16 16H368c-8.8 0-16-7.2-16-16V192H320v80c0 26.5 21.5 48 48 48H592c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48H368c-26.5 0-48 21.5-48 48v80H243.1 179.3c-29.5 0-56.7 16.3-70.6 42.3L49.9 280.5c-4.2 7.8-1.2 17.5 6.6 21.7s17.5 1.2 21.7-6.6L128 202.2V496c0 8.8 7.2 16 16 16s16-7.2 16-16z"/>
-											</svg>
+											<svg class="h-6 w-6 shrink-0" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 640 512"><!--!Font Awesome Pro 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2024 Fonticons, Inc.--><path fill="#46483c" d="M192 96a48 48 0 1 0 0-96 48 48 0 1 0 0 96zm-13.7 80H208V304H176V176.1c.7 0 1.5-.1 2.3-.1zM176 488V352h32V488c0 13.3 10.7 24 24 24s24-10.7 24-24V176H392c13.3 0 24-10.7 24-24s-10.7-24-24-24H368V48H592V272H368V224H320v48c0 26.5 21.5 48 48 48H592c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48H368c-26.5 0-48 21.5-48 48v80H243.1 178.3c-31.7 0-61 17.1-76.6 44.7L43.1 276.2c-6.5 11.5-2.5 26.2 9.1 32.7s26.2 2.5 32.7-9.1L128 223.6V488c0 13.3 10.7 24 24 24s24-10.7 24-24z"/></svg>
 											Cas clients
 										</a>
 									</li>
 									<li>
-										<a href="#" class="text-th-noir hover:text-th-orange hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
-											<svg class="h-6 w-6 shrink-0 text-th-noir group-hover:text-th-orange" fill="none" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-												<path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z"/>
-											</svg>
-											Projects
+										<a href="{{ path('admin_video_index') }}" class="text-th-noir hover:text-th-orange hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
+											<svg class="h-6 w-6 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--!Font Awesome Pro 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2024 Fonticons, Inc.--><path fill="#46483c" d="M96 112c0-26.5 21.5-48 48-48H304c8.8 0 16-7.2 16-16s-7.2-16-16-16H144c-44.2 0-80 35.8-80 80v48c-35.3 0-64 28.7-64 64V416c0 35.3 28.7 64 64 64H320c35.3 0 64-28.7 64-64V399 241 224c0-35.3-28.7-64-64-64H96V112zM80 192H320c17.7 0 32 14.3 32 32V416c0 17.7-14.3 32-32 32H64c-17.7 0-32-14.3-32-32V224c0-17.7 14.3-32 32-32H80zM520.3 460.5c5.1 2.3 10.6 3.5 16.2 3.5c21.8 0 39.5-17.7 39.5-39.5v-209c0-21.8-17.7-39.5-39.5-39.5c-5.6 0-11.1 1.2-16.2 3.5L416 226.4v35.1l117.4-52.8c1-.4 2-.7 3.1-.7c4.2 0 7.5 3.4 7.5 7.5v209c0 4.2-3.4 7.5-7.5 7.5c-1.1 0-2.1-.2-3.1-.7L416 378.5v35.1l104.3 46.9zM64 240c0 8.8 7.2 16 16 16H304c8.8 0 16-7.2 16-16s-7.2-16-16-16H80c-8.8 0-16 7.2-16 16z"/></svg>
+											Vidéos
 										</a>
 									</li>
+
+
+
+
+
+
 									<li>
-										<a href="#" class="text-th-noir hover:text-th-orange hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
-											<svg class="h-6 w-6 shrink-0 text-th-noir group-hover:text-th-orange" fill="none" viewbox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-												<path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5"/>
-											</svg>
-											Calendar
+										<a href="{{ path('admin_videoJobWorker_index')}}" class="text-th-noir hover:text-th-orange hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
+											<svg class="h-6 w-6 shrink-0" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 640 512"><!--!Font Awesome Pro 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2024 Fonticons, Inc.--><path fill="#46483c" d="M192 288c0 40.8 10.9 79 30 112c-96.3-1.1-174-79.5-174-176c0-97.2 78.8-176 176-176c38.9 0 74.8 12.6 104 34C248 116.2 192 195.5 192 288zm32 160c11.2 0 22.1-.8 32.8-2.4c40.6 41 96.9 66.4 159.2 66.4c123.7 0 224-100.3 224-224S539.7 64 416 64c-11.2 0-22.1 .8-32.8 2.4C342.6 25.4 286.3 0 224 0C100.3 0 0 100.3 0 224S100.3 448 224 448zm192 16c-38.9 0-74.8-12.6-104-34C392 395.8 448 316.5 448 224c0-40.8-10.9-79-30-112c96.3 1.1 174 79.5 174 176c0 97.2-78.8 176-176 176z"/></svg>
+											Rôles/Vidéo
 										</a>
 									</li>
 									<li>
@@ -257,10 +245,8 @@
 									</li>
 									<li>
 										<a href="{{ path('admin_worker_index') }}" class="text-th-noir hover:text-th-orange hover:bg-gray-50 group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold">
-											<svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><!--!Font Awesome Pro 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2024 Fonticons, Inc.-->
-												<path fill="#46483C" d="M192 80A48 48 0 1 0 96 80a48 48 0 1 0 96 0zM64 80a80 80 0 1 1 160 0A80 80 0 1 1 64 80zM320 288a64 64 0 1 0 0-128 64 64 0 1 0 0 128zm0-160a96 96 0 1 1 0 192 96 96 0 1 1 0-192zM261.3 384c-54.2 0-98.4 42.5-101.2 96H448c0 11.7 3.1 22.6 8.6 32H154.7c-14.7 0-26.7-11.9-26.7-26.7C128 411.7 187.7 352 261.3 352H378.7c4.6 0 9.1 .2 13.5 .7c-5.2 9.3-8.2 19.9-8.2 31.3v.1c-1.8-.1-3.5-.1-5.3-.1H261.3zM512 128a48 48 0 1 0 0-96 48 48 0 1 0 0 96zM512 0a80 80 0 1 1 0 160A80 80 0 1 1 512 0zm16 224H448c0-11-1.4-21.8-4-32h84c61.9 0 112 50.1 112 112c0 8.8-7.2 16-16 16s-16-7.2-16-16c0-44.2-35.8-80-80-80zm-336 0H112c-44.2 0-80 35.8-80 80c0 8.8-7.2 16-16 16s-16-7.2-16-16c0-61.9 50.1-112 112-112h84c-2.6 10.2-4 21-4 32zm320 64h32c17.7 0 32 14.3 32 32v32h32c17.7 0 32 14.3 32 32v32c0 17.7-14.3 32-32 32H576v32c0 17.7-14.3 32-32 32H512c-17.7 0-32-14.3-32-32V448H448c-17.7 0-32-14.3-32-32V384c0-17.7 14.3-32 32-32h32V320c0-17.7 14.3-32 32-32zm0 80c0 8.8-7.2 16-16 16H448v32h48c8.8 0 16 7.2 16 16v48h32V432c0-8.8 7.2-16 16-16h48V384H560c-8.8 0-16-7.2-16-16V320H512v48z"/>
-											</svg>
-												Collaborateurs
+											<svg class="flex h-6 w-6 shrink-0" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 640 512"><!--!Font Awesome Pro 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2024 Fonticons, Inc.--><path fill="#46483c" d="M128 64a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm0 80a56 56 0 1 0 0-112 56 56 0 1 0 0 112zM0 280c0 43.3 26.4 80.4 64 96v48c0 13.3 10.7 24 24 24h80c13.3 0 24-10.7 24-24V384c0-8.8-7.2-16-16-16s-16 7.2-16 16v32H96V208.4c2.6-.3 5.3-.4 8-.4h48c9.3 0 18.1 1.7 26.2 4.9c8.2 3.2 17.5-.9 20.7-9.1s-.9-17.5-9.1-20.7c-11.7-4.6-24.5-7.1-37.8-7.1H104C46.6 176 0 222.6 0 280zm64 59.9C44.7 327 32 304.9 32 280c0-25 12.7-47 32-59.9V339.9zM512 64a24 24 0 1 1 0 48 24 24 0 1 1 0-48zm0 80a56 56 0 1 0 0-112 56 56 0 1 0 0 112zM640 280c0-57.4-46.6-104-104-104H488c-13.3 0-26.1 2.5-37.8 7.1c-8.2 3.2-12.3 12.5-9.1 20.7s12.5 12.3 20.7 9.1c8.1-3.2 16.9-4.9 26.2-4.9h48c2.7 0 5.4 .1 8 .4V416H480V384c0-8.8-7.2-16-16-16s-16 7.2-16 16v40c0 13.3 10.7 24 24 24h80c13.3 0 24-10.7 24-24V376c37.6-15.7 64-52.7 64-96zm-64 59.9V220.1C595.3 233 608 255 608 280c0 24.9-12.7 47-32 59.9zM288 96a32 32 0 1 1 64 0 32 32 0 1 1 -64 0zm96 0A64 64 0 1 0 256 96a64 64 0 1 0 128 0zm-80 96c-57.4 0-104 46.6-104 104c0 40.1 22.7 74.9 56 92.3V456c0 13.3 10.7 24 24 24h80c13.3 0 24-10.7 24-24V388.3c33.3-17.3 56-52.1 56-92.3c0-57.4-46.6-104-104-104H304zm-48 50.3V349.7c-14.7-13.2-24-32.4-24-53.7c0-21.3 9.3-40.5 24-53.7zM288 448V225.8c5.1-1.2 10.5-1.8 16-1.8h32c5.5 0 10.9 .6 16 1.8V448H288zm96-98.3V242.3c14.7 13.2 24 32.3 24 53.7c0 21.3-9.3 40.5-24 53.7z"/></svg>
+											Collaborateurs
 										</a>
 									</li>
 								</ul>

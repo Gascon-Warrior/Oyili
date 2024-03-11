@@ -22,7 +22,7 @@ class Video
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $label = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(length: 1000, nullable: true)]
     private ?string $vimeoId = null;
 
     #[ORM\Column(type: Types::TEXT)]

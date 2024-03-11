@@ -1,0 +1,15 @@
+{% form_theme videoForm 'partials/_customForm.html.twig' %}
+
+{{ form_start(videoForm) }}
+    {{ form_row(videoForm.videoFileName) }}
+    {{ form_row(videoForm.label) }}
+    {{ form_row(videoForm.vimeoId) }}
+    {{ form_row(videoForm.caption) }}
+    {{ form_row(videoForm.isPromoted) }}
+    {{ form_row(videoForm.client) }}
+    {{ form_row(videoForm.tag) }}
+
+    
+    <button type='submit' class="rounded-md bg-green-600 px-3 mt-10 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600">{{button_label|default('Ajouter')}}</button>
+{{ form_end(videoForm) }}
+{# TODO:Afficher le message d'erreur #}
