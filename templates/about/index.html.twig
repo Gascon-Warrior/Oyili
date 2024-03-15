@@ -1,0 +1,103 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}A propos
+{% endblock %}
+
+{% block body %}
+	<div class="px-[10%] mt-[240px] flex flex-row">
+		<div class="w-1/2">
+			<h1 class="text-th-h1 font-th-title font-black tracking-th-h1">
+				<span class="move-background table relative leading-[1] px-[10px] left-[-10px] bg-color-line bg-[length:100vw_4.2em] bg-repeat-x bg-[left_top] before:content-[''] before:block before:absolute before:top-[-10px] before:left-[-60px] before:w-[calc(100%+120px)] before:h-[calc(100%+20px)] before:bg-white  before:-z-10">Vous parlez,
+				</span>
+				<span class="move-background table relative leading-[1] px-[10px] left-[-10px] bg-color-line-offset bg-[length:100vw_4.2em] bg-repeat-x bg-[left_top] before:content-[''] before:block before:absolute before:top-[-10px] before:left-[-60px] before:w-[calc(100%+120px)] before:h-[calc(100%+20px)] before:bg-white  before:-z-10">nous racontons
+				</span>
+			</h1>
+			<div class="mt-[60px] w-[90%]">
+				<p class="ml-4 text-xl leading-normal">
+					On sait depuis longtemps que travailler avec du texte lisible et contenant du sens est source de distractions, et empêche de se concentrer sur la mise en page elle-même. L'avantage du Lorem Ipsum sur un texte générique comme 'Du texte. Du texte. Du texte.' est qu'il possède une distribution de lettres plus ou moins normale, et en tout cas comparable avec celle du français standard.<br><br>
+					De nombreuses suites logicielles de mise en page ou éditeurs de sites Web ont fait du Lorem Ipsum leur faux texte par défaut, et une recherche pour 'Lorem Ipsum' vous conduira vers de nombreux sites qui n'en sont encore qu'à leur phase de construction. Plusieurs versions sont apparues avec le temps, parfois par accident, souvent intentionnellement (histoire d'y rajouter de petits clins d'oeil, voire des phrases embarassantes)
+				</p>
+			</div>
+		</div>
+		<div class="h-[700px] overflow-hidden mt-[70px]">
+			<img src="{{ asset('assets/uploads/img/noir-et-blanc-garcon.webp')}}" alt="">
+		</div>
+	</div>
+	<section class="px-[10%] mt-[240px]">
+		<h2 class="text-th-h1 font-th-title font-black tracking-th-h1">
+			<span class="move-background table relative leading-[1] px-[10px] left-[-10px] bg-color-line bg-[length:100vw_4.2em] bg-repeat-x bg-[left_top] before:content-[''] before:block before:absolute before:top-[-10px] before:left-[-60px] before:w-[calc(100%+120px)] before:h-[calc(100%+20px)] before:bg-white  before:-z-10">Découvrez
+			</span>
+			<span class="move-background table relative leading-[1] px-[10px] left-[-10px] bg-color-line-offset bg-[length:100vw_4.2em] bg-repeat-x bg-[left_top] before:content-[''] before:block before:absolute before:top-[-10px] before:left-[-60px] before:w-[calc(100%+120px)] before:h-[calc(100%+20px)] before:bg-white  before:-z-10">l'équipe.
+			</span>
+		</h2>
+		<p class="w-[47%] mt-[60px] text-xl leading-normal">On sait depuis longtemps que travailler avec du texte lisible et contenant du sens est source de distractions, et empêche de se concentrer sur la mise en page elle-même.</p>
+
+		<div class="flex flex-row mt-[70px] items-center">
+			<div class="container_dot h-[15px] w-[80%] bg-dot"></div>
+			<div class="flex flex-row justify-around w-[20%] text-center">
+				<div class="travail w-1/2 py-1 rounded-l-3xl border-t-2 border-l-2 border-b-2 border-black bg-black text-white">Travail</div>
+				<div class="loisir w-1/2 py-1 rounded-r-3xl border-t-2 border-r-2 border-b-2 border-black">Loisir</div>
+			</div>
+		</div>
+
+		<div id="team" class="w-full grid grid-cols-3 gap-x-[73px] gap-y-[73px] mt-16 mb-40">
+
+			{% for worker in workers %}
+
+				<div
+					id="" class="teamCard w-[460px] h-[460px]">
+					{#<div class="btnContainer">
+											<div class="btnClose"></div>
+										</div>#}
+
+					<div class="item-wrap w-fit">
+						<div class="imgContainer flex flex-row relative overflow-hidden w-[460px] h-[460px]">
+
+							{% set workImages = []%}
+							{% set funImages = [] %}
+							{% set colors = ['th-orange', 'th-vert', 'th-turquoize', 'th-beige'] %}
+							{% set colorIndex = loop.index0 % 4 %}
+							{# Utilise l'index de la boucle modulo la taille du tableau colors pour tourner entre les couleurs #}
+							{# trie les images en fonction du début de leur nom work ou fun #}
+								{% for picture in worker.pictures %}
+									{% if picture.pictureFileName starts with 'work' %}
+									{% set workImages = workImages|merge([picture]) %}
+								{% elseif picture.pictureFileName starts with 'fun' %}
+									{% set funImages = funImages|merge([picture]) %}
+								{% endif %}
+							{% endfor %}
+
+							{# Affiche les images en fonction du début de leur nom work ou fun #}
+							{% for picture in workImages %}
+								<div class="imgWork absolute z-30"><img class="" src="{{ asset('assets/uploads/img/' ~ picture.pictureFileName)}}" alt=""></div>
+							{% endfor %}
+
+							{% for picture in funImages %}
+								<div class="imgFun absolute z-40 translate-x-[calc(100%+20px)]"><img class="" src="{{ asset('assets/uploads/img/' ~ picture.pictureFileName)}}" alt=""></div>
+							{% endfor %}
+							<div class="overlay absolute z-50 top-0 left-0 bottom-0 right-0 bg-{{ colors[colorIndex] }} bg-opacity-50 hover:bg-opacity-0 transition duration-500"></div>
+							<div class="bio absolute translate-x-[calc(100%+20px)] z-50">
+								<div class="capitalize font-black">
+									<span class="firstname">{{ worker.firstname }}
+									</span>
+									<span class="lastname">
+										{{ worker.lastname }}</span>
+								</div>
+								<span class="content">
+									{{ worker.presentation }}</span>
+							</div>
+						</div>
+					</div>
+
+					<div class="itemInfo flex flex-col mt-2">
+						<span class="name capitalize font-black">{{ worker.firstname }}
+							{{ worker.lastname }}</span>
+						<span class="role">{{ worker.position }}</span>
+					</div>
+
+				</div>
+			{% endfor %}
+		</div>
+	</section>
+
+{% endblock %}

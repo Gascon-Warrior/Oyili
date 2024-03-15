@@ -8,6 +8,8 @@ import './bootstrap.js';
 import './styles/app.css';
 import './js/text-anim.js';
 import './js/scroll-line.js';
+import './js/team-card.js';
+
 
 
 

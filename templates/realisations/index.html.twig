@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Réalisations{% endblock %}
+
+{% block body %}
+        <div class="px-[10%] ">
+            <h1 class="mt-[190px] text-th-h1 font-th-title font-black tracking-th-h1">
+                <span class="move-background table relative leading-[1] px-[10px] left-[-10px] bg-color-line bg-[length:100vw_4.2em] bg-repeat-x bg-[left_top] before:content-[''] before:block before:absolute before:top-[-10px] before:left-[-60px] before:w-[calc(100%+120px)] before:h-[calc(100%+20px)] before:bg-white  before:-z-10">Découvrez
+                </span>                
+                <span class="move-background table relative leading-[1] px-[10px] left-[-10px] bg-color-line-offset bg-[length:100vw_4.2em] bg-repeat-x bg-[left_top] before:content-[''] before:block before:absolute before:top-[-10px] before:left-[-60px] before:w-[calc(100%+120px)] before:h-[calc(100%+20px)] before:bg-white  before:-z-10">notre travail
+                </span>
+            </h1>
+            <div class="mt-[60px] w-[45%]">
+                <p>
+                    On sait depuis longtemps que travailler avec du texte lisible et contenant du sens est source de distractions, et empêche de seconcentrer sur la mise en page elle-même.<br><br>                  
+                    L'avantage du Lorem Ipsum sur un texte générique comme 'Du texte. Du texte. Du texte.' estqu'il possède une distribution de lettres plus ou moins normale, et en tout cas comparable avec celle du français standard. Denombreuses suites logicielles de mise en page ou éditeurs de sites Web ont fait du Lorem Ipsum leur faux texte par défaut, et unerecherche pour 'Lorem Ipsum' vous conduira vers de nombreux sites qui n'en sont encore qu'à leur phase de construction. 
+                </p>
+            </div>
+        </div>
+
+       <div class="mt-[140px]">
+            <div>
+                <div class="relative grid grid-cols-4">
+                <div class="absolute z-50 top-[-25px] px-[18%] w-full">
+                    <ul class="bg-white flex flex-row uppercase justify-between text-sm">
+                    {% for tag in tags %}
+                        <li class="px-4 py-2">{{tag.label}}</li>
+                    {% endfor %}
+                    </ul>
+                </div>
+                    {% for video in videos %}
+                        <a href="">
+                            <div>
+                                {{video.vimeoId|raw}}
+                            </div>
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+{% endblock %}

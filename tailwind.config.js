@@ -31,8 +31,8 @@ module.exports = {
       backgroundImage: {
         'dot': "url('/images/dot.svg')", 
         'color-line': "url('/images/bande-couleur.svg')",
-        'color-line-offset': "url('/images/bande-couleur-decalee.svg')",    
-
+        'color-line-offset': "url('/images/bande-couleur-decalee.svg')",   
+        'seamless':  "url('/images/seamless.png')",
       },
       backgroundPosition:{
         'scrol-pos': 'var(--scrollPos)',
@@ -40,12 +40,23 @@ module.exports = {
       animation:{
         'dot-line': 'dot-line 30s linear infinite',
         'footer-text-anim': 'footer-text-anim 1s steps(8) infinite',
-        'after-footer-anim': 'after-footer-anim 0.3s forwards'
+        'after-footer-anim': 'after-footer-anim 0.3s forwards',
+        'slide-left': 'slideLeft 0.3s forwards',
+        'slide-right': 'slideRight 0.3s forwards',
+
       },
       keyframes:{
         'dot-line': {
           '0%': { transform: 'translateY(-50%)' },
           '100%': { transform: 'translateY(0)' },          
+        },
+        'slideLeft' :{
+          '0%': { transform: 'translateX(100%)' },
+          '100%':  { transform: 'translateX(0)' },
+        },
+        'slideRight' :{
+          '0%': { transform: 'translateX(0)' },
+          '100%':  { transform: 'translateX(calc(100%+30px))' },
         },
         'footer-text-anim': {
           '0%': { fill: '#EAE2CB' },
