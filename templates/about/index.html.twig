@@ -4,6 +4,7 @@
 {% endblock %}
 
 {% block body %}
+	<div id="pageOverlay" class="absolute block content-none w-[100%] bg-white opacity-95 z-60 top-0"></div>
 	<div class="px-[10%] mt-[240px] flex flex-row">
 		<div class="w-1/2">
 			<h1 class="text-th-h1 font-th-title font-black tracking-th-h1">
@@ -44,18 +45,15 @@
 
 			{% for worker in workers %}
 
-				<div
-					id="" class="teamCard w-[460px] h-[460px]">
-					{#<div class="btnContainer">
-											<div class="btnClose"></div>
-										</div>#}
+				<div id="" class="teamCard w-[460px] h-[460px]">
 
-					<div class="item-wrap w-fit">
+					<div class="item-wrap w-fit relative">
 						<div class="imgContainer flex flex-row relative overflow-hidden w-[460px] h-[460px]">
 
 							{% set workImages = []%}
 							{% set funImages = [] %}
 							{% set colors = ['th-orange', 'th-vert', 'th-turquoize', 'th-beige'] %}
+
 							{% set colorIndex = loop.index0 % 4 %}
 							{# Utilise l'index de la boucle modulo la taille du tableau colors pour tourner entre les couleurs #}
 							{# trie les images en fonction du début de leur nom work ou fun #}
@@ -69,23 +67,32 @@
 
 							{# Affiche les images en fonction du début de leur nom work ou fun #}
 							{% for picture in workImages %}
-								<div class="imgWork absolute z-30"><img class="" src="{{ asset('assets/uploads/img/' ~ picture.pictureFileName)}}" alt=""></div>
+								<div class="imgWork absolute z-10"><img class="" src="{{ asset('assets/uploads/img/' ~ picture.pictureFileName)}}" alt=""></div>
 							{% endfor %}
 
 							{% for picture in funImages %}
-								<div class="imgFun absolute z-40 translate-x-[calc(100%+20px)]"><img class="" src="{{ asset('assets/uploads/img/' ~ picture.pictureFileName)}}" alt=""></div>
+								<div class="imgFun absolute z-20 translate-x-[calc(100%+20px)]"><img class="" src="{{ asset('assets/uploads/img/' ~ picture.pictureFileName)}}" alt=""></div>
 							{% endfor %}
-							<div class="overlay absolute z-50 top-0 left-0 bottom-0 right-0 bg-{{ colors[colorIndex] }} bg-opacity-50 hover:bg-opacity-0 transition duration-500"></div>
-							<div class="bio absolute translate-x-[calc(100%+20px)] z-50">
-								<div class="capitalize font-black">
-									<span class="firstname">{{ worker.firstname }}
-									</span>
-									<span class="lastname">
-										{{ worker.lastname }}</span>
-								</div>
-								<span class="content">
-									{{ worker.presentation }}</span>
+							<div class="overlay absolute z-30 top-0 left-0 bottom-0 right-0 bg-{{ colors[colorIndex] }} bg-opacity-50 hover:bg-opacity-0 transition duration-500"></div>
+						</div>
+						<div class="absolute top-0 left-0 h-7 w-7 z-80 translate-x-[-50%] translate-y-[-50%]">
+							<div class="btnClose hidden cursor-pointer rounded-full bg-white w-8 h-8 absolute top-0 left-0">
+								<svg
+									xmlns="http://www.w3.org/2000/svg" viewbox="0 0 512 512">
+									<!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+									<path d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c-9.4 9.4-9.4 24.6 0 33.9l47 47-47 47c-9.4 9.4-9.4 24.6 0 33.9s24.6 9.4 33.9 0l47-47 47 47c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-47-47 47-47c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-47 47-47-47c-9.4-9.4-24.6-9.4-33.9 0z"/>
+								</svg>
 							</div>
+						</div>
+						<div class="bio absolute hidden top-0 {% if loop.index0 % 3 == 2 %}bio absolute right-[100%] mr-[72px]{% else %} left-[100%] ml-[72px] {% endif %} w-[100%] z-70">
+							<div class="capitalize font-black">
+								<span class="firstname">{{ worker.firstname }}
+								</span>
+								<span class="lastname">
+									{{ worker.lastname }}</span>
+							</div>
+							<span class="content">
+								{{ worker.presentation }}</span>
 						</div>
 					</div>
 
@@ -99,5 +106,4 @@
 			{% endfor %}
 		</div>
 	</section>
-
 {% endblock %}

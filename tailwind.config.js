@@ -72,7 +72,15 @@ module.exports = {
           '0%': { width: '0px' },
           '100%': { width: '30px' },
         },
-      }
+      },
+      zIndex: {
+        '60': 60,
+        '70': 70,
+        '80': 80,
+        '90': 90,
+        '100': 100,
+        // Vous pouvez ajouter autant de valeurs personnalisées que nécessaire
+      },
     },
   },
   plugins: [
