@@ -9,28 +9,32 @@
 }
 
 body {
-    background-color: #fff;  
-    font-family: lato;  
+  background-color: #fff;
+  font-family: lato;
 }
 #contactText {
   color: #fff;
-  font-family: Palanquin Dark, helvetica, arial, sans-serif;
+  font-family:
+    Palanquin Dark,
+    helvetica,
+    arial,
+    sans-serif;
   font-weight: 900;
   font-size: 24px;
   letter-spacing: -2.5px;
 }
 header {
-  background-color: black;  
+  background-color: black;
   display: flex;
   align-items: center;
   height: 80px;
   padding: 0 20px 0 20px;
 }
-.nav-container{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 .nav-list > ul > li {
   color: #fff;
@@ -49,33 +53,44 @@ header {
 @keyframes animBtnContact {
   0%,
   16.666% {
-    color: #EB610E;
+    color: #eb610e;
   }
   16.667%,
   33.333% {
-    color: #EC7056;
+    color: #ec7056;
   }
   33.334%,
   50% {
-    color: #91CDCF;
+    color: #91cdcf;
   }
   50.001%,
   66.666% {
-    color: #A0AA8F;
+    color: #a0aa8f;
   }
   66.667%,
   83.333% {
-    color: #EAE2CB;
+    color: #eae2cb;
   }
   83.334%,
   100% {
-    color: #0C324E; /* Répétition de la première couleur pour la sixième étape */
+    color: #0c324e; /* Répétition de la première couleur pour la sixième étape */
   }
 }
-::selection{
-  background: rgba(235, 97, 14, 0.3);  
+::selection {
+  background: rgba(235, 97, 14, 0.3);
 }
-.move-background{
+.move-background {
   background-position-x: calc(100% - var(--scrollPos));
 }
 
+/* Positionne la bio à gauche pour les éléments pairs */
+.teamCard:nth-child(even) .bio {
+  right: 100%;
+  left: auto;
+}
+
+/* Positionne la bio à droite pour les éléments impairs */
+.teamCard:nth-child(odd) .bio {
+  left: 100%;
+  right: auto;
+}

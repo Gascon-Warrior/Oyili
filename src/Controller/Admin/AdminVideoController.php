@@ -13,12 +13,12 @@ use Symfony\Component\Routing\Attribute\Route;
 
 #[Route('/admin954*retix/video', name: 'admin_video_')]
 class AdminVideoController extends AbstractController
-{   
+{
     #[Route('/', name: 'index')]
     public function index(VideoRepository $videoRepository): Response
-    {   
+    {
 
-        $videos = $videoRepository->findAll();
+        $videos = $videoRepository->findBy([], ['id' => 'DESC']);
 
         return $this->render('admin/video/index.html.twig', [
             'videos' => $videos,
@@ -27,7 +27,7 @@ class AdminVideoController extends AbstractController
 
     #[Route('/ajout', name: 'add')]
     public function add(EntityManagerInterface $em, Request $request): Response
-    {   
+    {
 
         $video = new Video();
         $videoForm = $this->createForm(VideoType::class, $video);
@@ -40,7 +40,7 @@ class AdminVideoController extends AbstractController
 
             //ajouter en table de liaison
             $this->addFlash('success', 'La vidéo a bien été ajoutée.');
-            
+
             return $this->redirectToRoute('admin_video_index');
         }
 
@@ -55,7 +55,7 @@ class AdminVideoController extends AbstractController
         $videoForm = $this->createForm(VideoType::class, $video);
         $videoForm->handleRequest($request);
 
-        if($videoForm->isSubmitted() && $videoForm->isValid()) {
+        if ($videoForm->isSubmitted() && $videoForm->isValid()) {
 
             $em->persist($video);
             $em->flush();

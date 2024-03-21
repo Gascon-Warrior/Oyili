@@ -13,11 +13,11 @@ use Symfony\Component\Routing\Attribute\Route;
 
 #[Route('/admin954*retix/cas-client', name: 'admin_clientCase_')]
 class AdminClientCaseController extends AbstractController
-{   
+{
     #[Route('/', name: 'index')]
     public function index(ClientCaseRepository $clientCaseRepository): Response
     {
-        $casClients = $clientCaseRepository->findAll();
+        $casClients = $clientCaseRepository->findBy([], ['id' => 'DESC']);
 
         return $this->render('admin/clientCase/index.html.twig', [
             'casClients' => $casClients,
@@ -33,7 +33,7 @@ class AdminClientCaseController extends AbstractController
         $clientCaseForm->handleRequest($request);
 
         if ($clientCaseForm->isSubmitted() && $clientCaseForm->isValid()) {
-            
+
             $em->persist($clientCase);
             $em->flush();
 
@@ -53,7 +53,7 @@ class AdminClientCaseController extends AbstractController
         $clientCaseForm->handleRequest($request);
 
         if ($clientCaseForm->isSubmitted() && $clientCaseForm->isValid()) {
-            
+
             $em->persist($clientCase);
             $em->flush();
 

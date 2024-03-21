@@ -20,7 +20,7 @@ class AdminClientController extends AbstractController
     #[Route('/', name: 'index')]
     public function index(ClientRepository $clientRepository): Response
     {
-        $clients = $clientRepository->findAll();
+        $clients = $clientRepository->findBy([], ['company' => 'ASC']);
 
         return $this->render('admin/client/index.html.twig', [
             'clients' => $clients,
@@ -104,7 +104,7 @@ class AdminClientController extends AbstractController
     }
 
     #[Route('/suppression/{id}', name: 'delete')]
-    public function delete( Client $client, PictureService $pictureService, EntityManagerInterface $em): Response
+    public function delete(Client $client, PictureService $pictureService, EntityManagerInterface $em): Response
     {
         $image = $client->getLogo();
         $folder = 'svg';
@@ -124,6 +124,5 @@ class AdminClientController extends AbstractController
         $this->addFlash('success', 'Le client a bien été supprimé.');
 
         return $this->redirectToRoute('admin_client_index');
-
     }
 }

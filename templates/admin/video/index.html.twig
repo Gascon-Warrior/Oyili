@@ -40,8 +40,8 @@
 							<tbody class="divide-y divide-gray-200 bg-white">
 								{% for video in videos %}
 									<tr>
-										<td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">{{video.label}}</td>
-										<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{video.caption}}</td>
+										<td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6 text-wrap">{{video.label}}</td>
+										<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-wrap">{{video.caption}}</td>
 										<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{% if video.isPromoted == false %}
 											Non
 											{% else %}
