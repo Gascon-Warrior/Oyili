@@ -77,6 +77,9 @@ module.exports = {
         100: 100,
         // Vous pouvez ajouter autant de valeurs personnalisées que nécessaire
       },
+      screens: {
+        "3xl": "2000px",
+      },
     },
   },
   plugins: [require("@tailwindcss/forms")],

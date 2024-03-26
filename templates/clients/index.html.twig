@@ -1,20 +1,31 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ClientsController!{% endblock %}
+{% block title %}Hello ClientsController!
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+	<div class="mainContainer">
+		{% for client in clients %}
+			<a href="{{ path('clients_clientCase', {slug: client.slug})}}">
+				<div class="item-bg block relative float-left clear-both overflow-visible h-[70vh] min-h-[500px] w-full">
+					<div class="bg-wrap block absolute top-0 left-0 w-full h-full overflow-hidden">
+						<div class="bg-container-paralax h-[calc(100%+80px)] top-[-40px]">
+							<div class="video-wrap block absolute top-1/2 left-1/2 w-auto min-w-full h-auto min-h-full pointer-events-none -translate-x-1/2 -translate-y-1/2">
+								{{ client.vimeoId|raw }}
+							</div>
+						</div>
+					</div>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>/home/gascon/Projets/oyili/src/Controller/ClientsController.php</code></li>
-        <li>Your template at <code>/home/gascon/Projets/oyili/templates/clients/index.html.twig</code></li>
-    </ul>
-</div>
+					<div class="logo-wrap absolute top-0 left-0 flex flex-col items-center  justify-center w-full h-full z-30">
+						<div class="logo w-[60%] h-[30%] max-w-[800px] cursor-pointer">
+							<img class="w-full h-full" src="{{ asset('assets/uploads/svg/' ~ client.logo) }}" alt="Logo de l'entreprise {{client.company}}">
+						</div>
+						<span class="cta float-none clear-both pt-[30px] text-white">Voir le cas client</span>
+					</div>
+				</div>
+			</a>
+		{% endfor %}
+	</div>
+
 {% endblock %}

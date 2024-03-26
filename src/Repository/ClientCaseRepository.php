@@ -21,28 +21,56 @@ class ClientCaseRepository extends ServiceEntityRepository
         parent::__construct($registry, ClientCase::class);
     }
 
-//    /**
-//     * @return ClientCase[] Returns an array of ClientCase objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('c')
-//            ->andWhere('c.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('c.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    public function findClientCases($slug): array
+    {
+        return $this->getEntityManager()->createQueryBuilder()
+            ->select('c.logo', 'c.tagline', 'c.clientFeedback', 'cc.presentation', 'v.label', 'v.vimeoId', 'p.alt', 'p.pictureFileName')
+            ->from('App\Entity\ClientCase', 'cc')
+            ->where("c.slug = '$slug'")
+            ->join('cc.client', 'c')
+            ->leftJoin('c.videos', 'v', 'WITH', 'v.isPromoted = 1')
+            ->where('v.isPromoted = 1')
+            ->leftJoin('c.pictures', 'p', 'WITH', 'p.isPromoted = 1')
+            ->where('p.isPromoted = 1')
+            ->getQuery()
+            ->getResult();
+    }
 
-//    public function findOneBySomeField($value): ?ClientCase
-//    {
-//        return $this->createQueryBuilder('c')
-//            ->andWhere('c.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+    public function findVideoCoverAndPictures($slug): array
+    {
+        return $this->getEntityManager()->createQueryBuilder()
+            ->select('c.logo', 'c.tagline', 'c.workPresentation', 'p.pictureFileName', 'p.alt', 'v.vimeoId', 'cc.presentation')
+            ->from('App\Entity\ClientCase', 'cc')
+            ->join('cc.client', 'c')
+            ->join('c.videos', 'v')
+            ->join('c.pictures', 'p')
+            ->where("c.slug = '$slug'")
+            ->andWhere('v.is_cover = 1')
+            ->getQuery()
+            ->getResult();
+    }
+    //    /**
+    //     * @return ClientCase[] Returns an array of ClientCase objects
+    //     */
+    //    public function findByExampleField($value): array
+    //    {
+    //        return $this->createQueryBuilder('c')
+    //            ->andWhere('c.exampleField = :val')
+    //            ->setParameter('val', $value)
+    //            ->orderBy('c.id', 'ASC')
+    //            ->setMaxResults(10)
+    //            ->getQuery()
+    //            ->getResult()
+    //        ;
+    //    }
+
+    //    public function findOneBySomeField($value): ?ClientCase
+    //    {
+    //        return $this->createQueryBuilder('c')
+    //            ->andWhere('c.exampleField = :val')
+    //            ->setParameter('val', $value)
+    //            ->getQuery()
+    //            ->getOneOrNullResult()
+    //        ;
+    //    }
 }

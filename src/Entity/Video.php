@@ -40,6 +40,9 @@ class Video
     #[ORM\OneToMany(mappedBy: 'video', targetEntity: VideoJobWorker::class, orphanRemoval: true)]
     private Collection $videoJobWorkers;
 
+    #[ORM\Column]
+    private ?bool $is_cover = null;
+
     public function __construct()
     {
         $this->tag = new ArrayCollection();
@@ -173,6 +176,18 @@ class Video
                 $videoJobWorker->setVideo(null);
             }
         }
+
+        return $this;
+    }
+
+    public function isIsCover(): ?bool
+    {
+        return $this->is_cover;
+    }
+
+    public function setIsCover(bool $is_cover): static
+    {
+        $this->is_cover = $is_cover;
 
         return $this;
     }
