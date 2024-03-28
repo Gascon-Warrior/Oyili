@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: VideoRepository::class)]
 class Video
@@ -43,10 +44,23 @@ class Video
     #[ORM\Column]
     private ?bool $is_cover = null;
 
+
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    #[Assert\Length(
+        min: 10,
+        minMessage: 'L\'avis client doit faire {{ limit }} caractères minimum.'
+    )]
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $clientFeedback = null;
+
+    #[ORM\OneToMany(mappedBy: 'video', targetEntity: Picture::class)]
+    private Collection $pictures;
+
     public function __construct()
     {
         $this->tag = new ArrayCollection();
         $this->videoJobWorkers = new ArrayCollection();
+        $this->pictures = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -188,6 +202,48 @@ class Video
     public function setIsCover(bool $is_cover): static
     {
         $this->is_cover = $is_cover;
+
+        return $this;
+    }
+
+    public function getClientFeedback(): ?string
+    {
+        return $this->clientFeedback;
+    }
+
+    public function setClientFeedback(?string $clientFeedback): static
+    {
+        $this->clientFeedback = $clientFeedback;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Picture>
+     */
+    public function getPictures(): Collection
+    {
+        return $this->pictures;
+    }
+
+    public function addPicture(Picture $picture): static
+    {
+        if (!$this->pictures->contains($picture)) {
+            $this->pictures->add($picture);
+            $picture->setVideo($this);
+        }
+
+        return $this;
+    }
+
+    public function removePicture(Picture $picture): static
+    {
+        if ($this->pictures->removeElement($picture)) {
+            // set the owning side to null (unless already changed)
+            if ($picture->getVideo() === $this) {
+                $picture->setVideo(null);
+            }
+        }
 
         return $this;
     }

@@ -28,6 +28,9 @@ class Picture
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $alt = null;
 
+    #[ORM\ManyToOne(inversedBy: 'pictures')]
+    private ?Video $video = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -89,6 +92,18 @@ class Picture
     public function setAlt(?string $alt): static
     {
         $this->alt = $alt;
+
+        return $this;
+    }
+
+    public function getVideo(): ?Video
+    {
+        return $this->video;
+    }
+
+    public function setVideo(?Video $video): static
+    {
+        $this->video = $video;
 
         return $this;
     }

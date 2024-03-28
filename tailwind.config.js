@@ -75,8 +75,7 @@ module.exports = {
         70: 70,
         80: 80,
         90: 90,
-        100: 100,
-        // Vous pouvez ajouter autant de valeurs personnalisées que nécessaire
+        100: 100,      
       },
       screens: {
         "3xl": "2000px",
