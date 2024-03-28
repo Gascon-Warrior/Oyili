@@ -43,9 +43,7 @@ class Video
 
     #[ORM\Column]
     private ?bool $is_cover = null;
-
-
-    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    
     #[Assert\Length(
         min: 10,
         minMessage: 'L\'avis client doit faire {{ limit }} caractères minimum.'
