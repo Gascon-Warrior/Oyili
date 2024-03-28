@@ -21,10 +21,17 @@ class ClientCaseRepository extends ServiceEntityRepository
         parent::__construct($registry, ClientCase::class);
     }
 
+    /**
+     * Trouve les cas clients associés au slug donné, incluant les informations telles que les vidéos promues, le logo, la tagline, 
+     * les avis des clients, la présentation du projet, les médias associés (vidéos et images).
+     *
+     * @param string $slug Le slug du nom de l'entreprise du client.
+     * @return array Un tableau contenant les informations des cas clients trouvés.
+     */
     public function findClientCases($slug): array
     {
         return $this->getEntityManager()->createQueryBuilder()
-            ->select('c.logo', 'c.tagline', 'c.clientFeedback', 'cc.presentation', 'v.label', 'v.vimeoId', 'p.alt', 'p.pictureFileName')
+            ->select('c.logo', 'c.tagline', 'c.clientFeedback', 'cc.presentation', 'v.label', 'v.vimeoId', 'v.caption', 'p.alt', 'p.pictureFileName')
             ->from('App\Entity\ClientCase', 'cc')
             ->where("c.slug = '$slug'")
             ->join('cc.client', 'c')
@@ -36,6 +43,12 @@ class ClientCaseRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    /**
+     * Trouve les videos de couverture, les photos des cas client, la presenation..
+     *
+     * @param sting $slug Le slug du nom de l'entreprise du client
+     * @return array Un tableau contenant les informations des cas clients trouvés.
+     */
     public function findVideoCoverAndPictures($slug): array
     {
         return $this->getEntityManager()->createQueryBuilder()
