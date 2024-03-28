@@ -30,6 +30,7 @@ module.exports = {
         "color-line": "url('/images/bande-couleur.svg')",
         "color-line-offset": "url('/images/bande-couleur-decalee.svg')",
         seamless: "url('/images/seamless.png')",
+        'pattern-black': "url('/images/pattern-oyili-noir.svg')",
       },
       backgroundPosition: {
         "scrol-pos": "var(--scrollPos)",

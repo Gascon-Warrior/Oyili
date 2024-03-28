@@ -28,22 +28,22 @@
 
 
 
-		<div class="heading-wrap z-60 mt-[-70px] block relative  float-left clear-both w-full h-full px-[10%] 3xl:px-[20%]">
-			<div class="heading block relative float-left clear-both z-20 after:content-[''] after:table after:clear-both">
+		<div class="heading-wrap z-60 mt-[-70px] block relative float-left clear-both w-full h-full px-[10%] 3xl:px-[20%] after:content-[''] after:table after:clear-both">
+			<div class="heading block relative float-left clear-both z-20">
 				<span class="spectrum-lines text-[90px] font-black mb-[40px] leading-[100%] tracking-[-0.15vw]">
 
 					{% if sentences[0] %}
-						<span class="line1 block relative z-10 left text-black clear-both bg-color-line pl-[10px] left-[-10px] bg-repeat-x bg-[length:100vw_0.2em] bg-left-bottom leading-0 pb-[0.1em] bg-p before:content-[''] before:block before:absolute before:top-[-10px] before:left-[-60px] before:w-[calc(100%+120px)] before:h-[calc(100%+20px)] before:bg-white before:z-[-10] after:content-[''] after:h-[90px] after:relative after:inline-block">
+						<span class="line1 block relative float-left text-black clear-both bg-color-line pl-[10px] left-[-10px] whitespace-nowrap bg-repeat-x bg-[length:100vw_0.2em] bg-left-bottom leading-0 pb-[0.1em] bg-p before:content-[''] before:block before:absolute before:top-[-10px] before:left-[-60px] before:w-[calc(100%+120px)] before:h-[calc(100%+20px)] before:bg-white before:z-[-10] after:content-[''] after:h-[90px] after:relative after:inline-block">
 							{{sentences[0]}}
 						</span>							
 					{% endif %}
 					{% if sentences[1] is defined %}
-						<span class="line2 block relative z-10 left text-black clear-both bg-color-line-offset pl-[10px] left-[-10px] bg-repeat-x bg-[length:100vw_0.2em] bg-left-bottom leading-0 pb-[0.1em] bg-p before:content-[''] before:block before:absolute before:top-[-10px] before:left-[-60px] before:w-[calc(100%+120px)] before:h-[calc(100%+20px)] before:bg-white before:z-[-10] after:content-[''] after:h-[90px] after:relative after:inline-block">
+						<span class="line2 block relative float-left text-black clear-both bg-color-line-offset pl-[10px] whitespace-nowrap left-[-10px] bg-repeat-x bg-[length:100vw_0.2em] bg-left-bottom leading-0 pb-[0.1em] bg-p before:content-[''] before:block before:absolute before:top-[-10px] before:left-[-60px] before:w-[calc(100%+120px)] before:h-[calc(100%+20px)] before:bg-white before:z-[-10] after:content-[''] after:h-[90px] after:relative after:inline-block">
 							{{sentences[1]}}
 						</span>
 					{% endif %}
 					{% if sentences[2] is defined %}
-						<span class="line3 block relative z-10 left text-black clear-both bg-color-line pl-[10px] left-[-10px] bg-repeat-x bg-[length:100vw_0.2em] bg-left-bottom leading-0 pb-[0.1em] bg-p before:content-[''] before:block before:absolute before:top-[-10px] before:left-[-60px] before:w-[calc(100%+120px)] before:h-[calc(100%+20px)] before:bg-white before:z-[-10] after:content-[''] after:h-[90px] after:relative after:inline-block">
+						<span class="line3 block relative float-left text-black clear-both bg-color-line pl-[10px] left-[-10px] whitespace-nowrap bg-repeat-x bg-[length:100vw_0.2em] bg-left-bottom leading-0 pb-[0.1em] bg-p before:content-[''] before:block before:absolute before:top-[-10px] before:left-[-60px] before:w-[calc(100%+120px)] before:h-[calc(100%+20px)] before:bg-white before:z-[-10] after:content-[''] after:h-[90px] after:relative after:inline-block">
 							{{sentences[2]}}
 						</span>
 					{% endif %}
@@ -52,5 +52,96 @@
 			</div>
 		</div>
 	</section>
+
+	<section class="pt-[8%] px-[10%] after:content-[''] after:table after:clear-both">
+	 <div class="section-wrap">
+	 	<div class="section-content">
+			<div class="description block relative float-left clear-both pr-[30%] text-[22px] leading-[140%] z-20 mb-[60px]">
+				<p class="my-0">{{ coverAndPictures[0].presentation }}</p>
+			</div>
+		</div>
+	 </div>
+	</section>
+
+
+	{% for clientCase in clientCases %}	
+
+	{% set colors = ['#EB610E', '#A0AA8F', '#91CDCF', '#EAE2CB'] %}
+	{% set colorIndex = loop.index0 % 4 %}
+		{% if loop.index is odd %}
+			<section class="py-[8%] w-full after:content-[''] after:table after:clear-both">
+		<h2 class="title pr-[30px] w-[55%] mb-[30px] font-light pl-[10%] text-6xl leading-[100%] tracking-[-0.025em] after:content-[''] after:table after:clear-both">
+			{{clientCase.label}}
+		</h2>
+		<div class="inner flex mb-[100px]">
+			<div class="inner-info pr-[30px] w-[40%] pl-[10%] after:content-[''] after:table after:clear-both">
+				<div class="description mb-[30px]">
+					<p class="my-0">{{ clientCase.caption }}</p>
+				</div>
+				<a class="cta relative flex justify-start items-center float-left clear-both bg-none whitespace-nowrap cursor-pointer text-black" href="#">
+					<span class="oyili-wrap origin-bottom whitespace-nowrap cursor-pointer mr-[10px]">
+						{{ source('svg/logo-oyili-responsive.svg') }}
+					</span>
+					<div class="text font-normal text-[14px] leading-[100%] tracking-[2px] uppercase">
+						Voir la
+						<b class="font-black">
+							Vidéo
+						</b>
+					</div>
+
+					<span class="dotted left-[100%] block absolute top-1/2 w-[50vw] h-[4px]  mt-[-2px] bg-dot bg-repeat-x bg-left bg-[length:15px_15px]">
+					
+					</span>
+					
+				</a>
+			</div>
+
+			<div class="inner-media pr-[100px] relative w-[60%]">
+				<div class="bg right-0 block absolute top-[-100px] h-[calc(100%+(100px*2))] w-[70%]" style="background-color: {{ colors[colorIndex] }}">
+				</div>
+					{{ clientCase.vimeoId|raw}}
+			</div>
+		</div>
+	</section>
+		{% else %}
+			<section class="py-[8%] w-full after:content-[''] after:table after:clear-both">
+		<h2 class="title float-right w-[40%] mb-[30px] font-light pl-[30px] pr-[10%] text-6xl leading-[100%] tracking-[-0.025em] after:content-[''] after:table after:clear-both">
+			{{clientCase.label}}
+		</h2>
+		<div class="inner float-right flex flex-row-reverse	mb-[100px]">
+
+
+			<div class="inner-info pl-[30px] w-[40%] pr-[10%] after:content-[''] after:table after:clear-both">
+				<div class="description mb-[30px]">
+					<p class="my-0">{{ clientCase.caption }}</p>
+				</div>
+				<a class="cta relative flex justify-start items-center float-right clear-both bg-none whitespace-nowrap cursor-pointer text-black" href="#">
+					<span class="oyili-wrap origin-bottom whitespace-nowrap cursor-pointer mr-[10px]">
+						{{ source('svg/logo-oyili-responsive.svg') }}
+					</span>
+					<div class="text font-normal text-[14px] leading-[100%] tracking-[2px] uppercase">
+						Voir la
+						<b class="font-black">
+							Vidéo
+						</b>
+					</div>
+
+					<span class="dotted right-[100%] block absolute top-1/2 w-[50vw] h-[4px]  mt-[-2px] bg-dot bg-repeat-x bg-left bg-[length:15px_15px]">
+					
+					</span>
+					
+				</a>
+			</div>
+
+			<div class="inner-media pl-[100px] relative w-[60%]">
+				<div class="bg left-0 block absolute top-[-100px] h-[calc(100%+(100px*2))] w-[70%]" style="background-color: {{ colors[colorIndex] }}">
+				</div>
+					{{ clientCase.vimeoId|raw}}
+			</div>
+		</div>
+	</section>
+		{% endif %}	
+			
+	{% endfor %}
 	
 {% endblock %}
